@@ -1,45 +1,50 @@
-print("🤖 Barcelona Chatbot startad! 🔵🔴")
-print("Du kan fråga mig om Barcelona.")
-print("Exempel på frågor:")
-print("- stad")
-print("- väder")
-print("- turism")
-print("- fotboll / FC Barcelona")
-print("- Camp Nou")
-print("\nSkriv 'exit' för att avsluta\n")
+print("Hello! Welcome! 👋")
+print("You can ask me everything about Sunset Restaurant, such as:")
+print("- our opening hours")
+print("- where we are located")
+print("- our dishes like pizza, grill and pasta")
+print("- how to place an order")
+print("- food prices and much more info\n")
 
-barcelona_info = {
-    "stad": "Barcelona är en stor stad i Spanien och huvudstad i Katalonien.",
-    "väder": "Barcelona har medelhavsklimat med varma somrar och milda vintrar.",
-    "turism": "Populära platser är Sagrada Familia, Park Güell och La Rambla.",
-    "fotboll": "FC Barcelona spelar på Camp Nou och är en av världens största klubbar.",
-    "camp nou": "Camp Nou är FC Barcelonas hemmaarena och en av Europas största arenor."
+print("Type 'exit' to close the chatbot.\n")
+
+restaurant_info = {
+    "opening hours": "Sunset Restaurant is open every day from 10:00 AM to 10:00 PM.",
+    "location": "We are located in the city center, near the main square.",
+    "pizza": "We serve many types of pizza, including Margherita, Pepperoni, and BBQ Chicken.",
+    "pasta": "Our pasta dishes include Carbonara, Bolognese, and Alfredo.",
+    "grill": "We offer grilled dishes like burgers, steak, and grilled chicken.",
+    "order": "You can place an order by visiting our restaurant or calling us directly.",
+    "prices": "Our meals range from $8 to $25 depending on the dish."
 }
 
 while True:
-    msg = input("\nDu: ").lower()
+    msg = input("You: ").lower()
 
     if msg == "exit":
-        print("Bot: Hej då! Visca Barça 🔵🔴")
+        print("Bot: Goodbye! Have a nice day 🍽️")
         break
 
-    elif "hej" in msg:
-        print("Bot: Hej! Fråga mig om Barcelona 😊")
+    elif "opening" in msg or "hours" in msg:
+        print("Bot:", restaurant_info["opening hours"])
 
-    elif "stad" in msg:
-        print("Bot:", barcelona_info["stad"])
+    elif "where" in msg or "location" in msg or "place" in msg:
+        print("Bot:", restaurant_info["location"])
 
-    elif "väder" in msg:
-        print("Bot:", barcelona_info["väder"])
+    elif "pizza" in msg:
+        print("Bot:", restaurant_info["pizza"])
 
-    elif "turism" in msg or "resa" in msg:
-        print("Bot:", barcelona_info["turism"])
+    elif "pasta" in msg:
+        print("Bot:", restaurant_info["pasta"])
 
-    elif "fotboll" in msg or "barça" in msg:
-        print("Bot:", barcelona_info["fotboll"])
+    elif "grill" in msg or "burger" in msg:
+        print("Bot:", restaurant_info["grill"])
 
-    elif "camp nou" in msg:
-        print("Bot:", barcelona_info["camp nou"])
+    elif "order" in msg:
+        print("Bot:", restaurant_info["order"])
+
+    elif "price" in msg:
+        print("Bot:", restaurant_info["prices"])
 
     else:
-        print("Bot: Jag förstår inte riktigt 🤔 Försök fråga om stad, väder, turism eller fotboll.")
+        print("Bot: Please ask something about our restaurant 🍽️")
