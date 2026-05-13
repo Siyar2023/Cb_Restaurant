@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Chatbot</title>
+</head>
+
+<body>
+
+    <h1>Restaurant Chatbot</h1>
+
+    <input id="message" type="text">
+
+    <button onclick="sendMessage()">
+        Send
+    </button>
+
+    <div id="chat">
+
+        <p>
+           
+            🌟 Hello! Welcome to Sunset Restaurant.
+            How can I help you?
+        </p>
+
+    </div>
+
+    <script>
+
+        async function sendMessage() {
+
+            const text =
+                document.getElementById("message").value
+
+            const response = await fetch(
+                "http://127.0.0.1:8000/chat",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        text: text
+                    })
+                }
+            )
+
+            const data = await response.json()
+
+            document.getElementById("chat").innerHTML += `
+                <p><b>You:</b> ${text}</p>
+                <p><b>Bot:</b> ${data.response}</p>
+            `
+
+            // clears input field after sending
+            document.getElementById("message").value = ""
+
+        }
+
+    </script>
+
+</body>
+
+</html>
