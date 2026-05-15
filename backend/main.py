@@ -1,5 +1,5 @@
 
-from Cb_Restaurant import chatbot_response
+from Fullstack_App_cb import chatbot_response
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
